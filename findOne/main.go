@@ -14,14 +14,12 @@ import (
 
 // Cribsheet app represents the structure that stores the material's metadata
 type Cribsheet struct {
-	ID          string `json:"id"`
-	Name        string `json:"name"`
-	LastName    string `json:"lastname"`
-	Subject     string `json:"subject"`
-	Type        string `json:"type"`
-	University  string `json:"university"`
-	Year        string `json:"year"`
-	Description string `json:"description"`
+	ID         string `json:"id"`
+	LastName   string `json:"lastname"`
+	Subject    string `json:"subject"`
+	Type       string `json:"type"`
+	University string `json:"university"`
+	Year       string `json:"year"`
 }
 
 func findOne(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
@@ -53,14 +51,12 @@ func findOne(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	}
 
 	cribsheet := Cribsheet{
-		ID:          *res.Item["ID"].S,
-		Name:        *res.Item["Name"].S,
-		Subject:     *res.Item["Subject"].S,
-		Type:        *res.Item["Type"].S,
-		University:  *res.Item["University"].S,
-		Year:        *res.Item["Year"].S,
-		LastName:    *res.Item["LastName"].S,
-		Description: *res.Item["Description"].S,
+		ID:         *res.Item["ID"].S,
+		Subject:    *res.Item["Subject"].S,
+		Type:       *res.Item["Type"].S,
+		University: *res.Item["University"].S,
+		Year:       *res.Item["Year"].S,
+		LastName:   *res.Item["LastName"].S,
 	}
 
 	response, err := json.Marshal(cribsheet)

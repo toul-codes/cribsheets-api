@@ -15,19 +15,16 @@ import (
 // Cribsheet struct is used for storing the data
 // and marshalling it into JSON for the request body
 type Cribsheet struct {
-	ID          string `json:"id"`
-	Name        string `json:"name"`
-	LastName    string `json:"lastname"`
-	Subject     string `json:"subject"`
-	Type        string `json:"type"`
-	University  string `json:"university"`
-	Year        string `json:"year"`
-	Description string `json:"description"`
+	ID         string `json:"id"`
+	LastName   string `json:"lastname"`
+	Subject    string `json:"subject"`
+	Type       string `json:"type"`
+	University string `json:"university"`
+	Year       string `json:"year"`
 }
 
 // findAll will scan the DB and return all of the items in the DB
-func findAll(events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-
+func findAll() (events.APIGatewayProxyResponse, error) {
 	cfg, err := external.LoadDefaultAWSConfig()
 	if err != nil {
 		return events.APIGatewayProxyResponse{
@@ -52,14 +49,12 @@ func findAll(events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, err
 	cribsheets := make([]Cribsheet, 0)
 	for _, item := range res.Items {
 		cribsheets = append(cribsheets, Cribsheet{
-			ID:          *item["ID"].S,
-			Name:        *item["Name"].S,
-			LastName:    *item["LastName"].S,
-			Subject:     *item["Subject"].S,
-			Type:        *item["Type"].S,
-			University:  *item["University"].S,
-			Year:        *item["Year"].S,
-			Description: *item["Description"].S,
+			ID:         *item["ID"].S,
+			LastName:   *item["LastName"].S,
+			Subject:    *item["Subject"].S,
+			Type:       *item["Type"].S,
+			University: *item["University"].S,
+			Year:       *item["Year"].S,
 		})
 	}
 

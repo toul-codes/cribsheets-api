@@ -48,14 +48,9 @@ aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:961923280705
     --action lambda:InvokeFunction
 
 # Staging 
-aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:961923280705:function:FindAllCribsheets:Staging" \
-    --source-arn "arn:aws:execute-api:us-east-2:961923280705:7qkpsd4my6/*/GET/cribsheets" \
-    --principal apigateway.amazonaws.com \
-    --statement-id 80e281bc-c51d-4f53-bb96-2a95c7c26414 \
-    --action lambda:InvokeFunction
-
+aws lambda add-permission   --function-name "arn:aws:lambda:us-east-2:961923280705:function:FindAllCribsheets:Staging"   --source-arn "arn:aws:execute-api:us-east-2:961923280705:7qkpsd4my6/*/GET/cribsheets"   --principal apigateway.amazonaws.com   --statement-id 2fbac480-8082-4c01-9b48-0d838a34c759   --action lambda:InvokeFunction
 aws lambda add-permission   --function-name "arn:aws:lambda:us-east-2:961923280705:function:FindAllCribsheets:Staging"   --source-arn "arn:aws:execute-api:us-east-2:961923280705:7qkpsd4my6/*/GET/cribsheets"   --principal apigateway.amazonaws.com   --statement-id fb583b09-c1fc-4c80-a3ed-4381978cc2df   --action lambda:InvokeFunction
-
+ aws lambda add-permission   --function-name "arn:aws:lambda:us-east-2:961923280705:function:FindAllCribsheets:Staging"   --source-arn "arn:aws:execute-api:us-east-2:961923280705:7qkpsd4my6/*/GET/cribsheets"   --principal apigateway.amazonaws.com   --statement-id e682f70d-c1a5-4042-82fc-47bb57de26f7   --action lambda:InvokeFunction
 # Remove permission from production 
 aws lambda remove-permission --function-name "arn:aws:lambda:us-east-2:961923280705:function:FindAllCribsheets:Production" \
     --statement-id 80e281bc-c51d-4f53-bb96-2a95c7c26414
