@@ -46,7 +46,7 @@ func findOne(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespo
 	if err != nil {
 		return events.APIGatewayProxyResponse{
 			StatusCode: http.StatusInternalServerError,
-			Body:       "Error while fetching movie from DynamoDB",
+			Body:       "Error while fetching Cribsheet from DynamoDB",
 		}, nil
 	}
 

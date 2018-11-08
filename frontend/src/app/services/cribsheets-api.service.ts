@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
-
+import { Cribsheet } from '../../models/cribsheet';
 
 @Injectable()
 export class CribsheetsApiService {
@@ -17,4 +17,11 @@ export class CribsheetsApiService {
     })
   }
 
+  insert(cribsheet: Cribsheet){
+    return this.http
+      .post(environment.api, JSON.stringify(cribsheet))
+      .map(res => {
+        return res
+      })
+}
 }

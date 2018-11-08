@@ -70,7 +70,7 @@ func insert(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespon
 	if err != nil {
 		return events.APIGatewayProxyResponse{
 			StatusCode: http.StatusInternalServerError,
-			Body:       "Error while inserting movie to DynamoDB",
+			Body:       "Error while inserting Cribsheet to DynamoDB",
 		}, nil
 	}
 
