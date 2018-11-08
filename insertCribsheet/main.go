@@ -15,12 +15,12 @@ import (
 // Cribsheet in a data holding entitity
 type Cribsheet struct {
 	ID          string `json:"id"`
-	Name        string `json:"name"`
 	LastName    string `json:"lastname"`
 	Subject     string `json:"subject"`
 	Type        string `json:"type"`
 	University  string `json:"university"`
 	Year        string `json:"year"`
+	Name        string `json:"name"`
 	Description string `json:"description"`
 }
 
@@ -51,9 +51,6 @@ func insert(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespon
 			"ID": dynamodb.AttributeValue{
 				S: aws.String(cribsheet.ID),
 			},
-			"Name": dynamodb.AttributeValue{
-				S: aws.String(cribsheet.Name),
-			},
 			"LastName": dynamodb.AttributeValue{
 				S: aws.String(cribsheet.LastName),
 			},
@@ -68,6 +65,9 @@ func insert(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespon
 			},
 			"Year": dynamodb.AttributeValue{
 				S: aws.String(cribsheet.Year),
+			},
+			"Name": dynamodb.AttributeValue{
+				S: aws.String(cribsheet.Name),
 			},
 			"Description": dynamodb.AttributeValue{
 				S: aws.String(cribsheet.Description),
