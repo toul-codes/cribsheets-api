@@ -14,12 +14,11 @@ import (
 
 // Cribsheet in a data holding entitity
 type Cribsheet struct {
-	ID         string `json:"id"`
-	LastName   string `json:"lastname"`
-	Subject    string `json:"subject"`
-	Type       string `json:"type"`
-	University string `json:"university"`
-	Year       string `json:"year"`
+	ID           string `json:"id"`
+	Professor    string `json:"professor"`
+	CourseNumber string `json:"coursenumber"`
+	Description  string `json:"description"`
+	Filename     string `json:"filename"`
 }
 
 func insert(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
@@ -42,27 +41,23 @@ func insert(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRespon
 	}
 
 	svc := dynamodb.New(cfg)
-
 	req := svc.PutItemRequest(&dynamodb.PutItemInput{
 		TableName: aws.String(os.Getenv("TABLE_NAME")),
 		Item: map[string]dynamodb.AttributeValue{
 			"ID": dynamodb.AttributeValue{
 				S: aws.String(cribsheet.ID),
 			},
-			"LastName": dynamodb.AttributeValue{
-				S: aws.String(cribsheet.LastName),
+			"Professor": dynamodb.AttributeValue{
+				S: aws.String(cribsheet.Professor),
 			},
-			"Subject": dynamodb.AttributeValue{
-				S: aws.String(cribsheet.Subject),
+			"CourseNumber": dynamodb.AttributeValue{
+				S: aws.String(cribsheet.CourseNumber),
 			},
-			"Type": dynamodb.AttributeValue{
-				S: aws.String(cribsheet.Type),
+			"Description": dynamodb.AttributeValue{
+				S: aws.String(cribsheet.Description),
 			},
-			"University": dynamodb.AttributeValue{
-				S: aws.String(cribsheet.University),
-			},
-			"Year": dynamodb.AttributeValue{
-				S: aws.String(cribsheet.Year),
+			"Filename": dynamodb.AttributeValue{
+				S: aws.String(cribsheet.Filename),
 			},
 		},
 	})

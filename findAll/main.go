@@ -15,12 +15,11 @@ import (
 // Cribsheet struct is used for storing the data
 // and marshalling it into JSON for the request body
 type Cribsheet struct {
-	ID         string `json:"id"`
-	LastName   string `json:"lastname"`
-	Subject    string `json:"subject"`
-	Type       string `json:"type"`
-	University string `json:"university"`
-	Year       string `json:"year"`
+	ID           string `json:"id"`
+	Professor    string `json:"professor"`
+	CourseNumber string `json:"coursenumber"`
+	Description  string `json:"description"`
+	Filename     string `json:"filename"`
 }
 
 // findAll will scan the DB and return all of the items in the DB
@@ -49,12 +48,11 @@ func findAll() (events.APIGatewayProxyResponse, error) {
 	cribsheets := make([]Cribsheet, 0)
 	for _, item := range res.Items {
 		cribsheets = append(cribsheets, Cribsheet{
-			ID:         *item["ID"].S,
-			LastName:   *item["LastName"].S,
-			Subject:    *item["Subject"].S,
-			Type:       *item["Type"].S,
-			University: *item["University"].S,
-			Year:       *item["Year"].S,
+			ID:           *item["ID"].S,
+			Professor:    *item["Professor"].S,
+			CourseNumber: *item["CourseNumber"].S,
+			Description:  *item["Description"].S,
+			Filename:     *item["Filename"].S,
 		})
 	}
 

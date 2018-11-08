@@ -19,8 +19,8 @@ export class NewCribsheetComponent implements OnInit {
   ngOnInit() {
   }
 
-  save(lastname, subject, type, university, year) {
-    this.cribsheet = new Cribsheet(lastname, subject, type, university, year)
+  save(professor, coursenumber, description, filename) {
+    this.cribsheet = new Cribsheet(professor, coursenumber, description, filename)
     this.cribsheetsApiService.insert(this.cribsheet).subscribe(res => {
       this.showMsg = true;
     }, err => {
@@ -29,3 +29,4 @@ export class NewCribsheetComponent implements OnInit {
 }
 
 }
+

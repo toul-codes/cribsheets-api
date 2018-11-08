@@ -9,12 +9,17 @@
  <b>Well done !</b> You successfully added a new Cribsheet.
  </div>
  <div class="form-group">
- <label for="title">Title</label>
- <input type="text" class="form-control" #title>
+ <label for="professor">Professor:</label>
+ <input type="text" class="form-control" #professor> 
  </div>
  <div class="form-group">
- <label for="description">Description</label>
- <textarea class="form-control" #description></textarea>
+    <label for="coursenumber">Course Number:</label>
+    <input type="text" class="form-control" #coursenumber> 
+ </div>
+ <div class="form-group">
+ <label for="coursenumber">Description</label>
+ <textarea class="form-control" rows="3" #description> e.g, University of Houston, Exam 1 with solutions fall 2018
+</textarea>
  </div>
  <div class="form-group">
   <form method='post' action='' enctype="multipart/form-data">
@@ -23,5 +28,6 @@
  </div>
 </div>
 <div class="modal-footer">
-   <button type="button" class="btn btn-success" (click)="save(title.value, description.value, file.value)">Save</button>
+   <button type="button" class="btn btn-success" (click)="save(professor.value, coursenumber.value, description.value, file.value)">Save</button>
 </div>
+ 

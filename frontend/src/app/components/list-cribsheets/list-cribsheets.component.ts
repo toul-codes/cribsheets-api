@@ -13,7 +13,7 @@ export class ListCribsheetsComponent implements OnInit {
     this.cribsheets = []
     this.cribsheetsApiService.findAll().subscribe(res => {
       res.forEach(cribsheet => {
-        this.cribsheets.push(new Cribsheet(cribsheet.lastname, cribsheet.subject, cribsheet.type, cribsheet.university, cribsheet.year))
+        this.cribsheets.push(new Cribsheet(cribsheet.professor, cribsheet.coursenumber, cribsheet.description, cribsheet.filename))
       })
     })
   } 
@@ -22,3 +22,4 @@ export class ListCribsheetsComponent implements OnInit {
   }
 
 }
+
