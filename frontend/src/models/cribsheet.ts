@@ -1,49 +1,36 @@
 export class Cribsheet {
-    private name: string;
+    private lastname: string;
+    private subject: string;
+    private type: string;
     private university: string;
-    private professor: string;
-	private subject: string;
-	private type: string;
-	private description: string
+	private year: string;
 
-    constructor(name: string, university: string, professor: string, subject: string, type: string, description: string){
-        this.name = name;
-        this.university = university;
-        this.professor = professor;
-		this.subject = subject;
-		this.type = type;
-		this.description = description;
+    constructor(lastName: string, subject: string, type: string, university: string, year: string){
+        this.lastname = lastName;
+        this.subject = subject;
+        this.type = type;
+        this.university = university; 
+		this.year = year;
     }
 
-    public getName(){
-        return this.name;
+    public getLastName(){
+        return this.lastname;
     }
 
-    public getUniversity(){
-        return this.university;
+    public getSubject(){
+        return this.subject;
     }
-
-    public getProfessor(){
-        return this.professor;
-    }
-
-	public getSubject(){
-		return this.subject;
-	}
 
 	public getType(){
 		return this.type;
 	}
 
-	public getDescription(){
-		return this.description;
-	}
-
-    public setName(name: string){
-        this.name = name;
+	public getUniversity(){
+		return this.university;
+    }
+    
+    public getYear(){
+        return this.year;
     }
 
-    public setDescription(description: string){
-        this.description = description;
-    }
 }

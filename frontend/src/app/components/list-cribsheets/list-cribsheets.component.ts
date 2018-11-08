@@ -9,12 +9,11 @@ import { CribsheetsApiService } from '../../services/cribsheets-api.service';
 export class ListCribsheetsComponent implements OnInit {
 	
   public cribsheets: Cribsheet[];
-
   constructor(private cribsheetsApiService: CribsheetsApiService) {
     this.cribsheets = []
     this.cribsheetsApiService.findAll().subscribe(res => {
       res.forEach(cribsheet => {
-        this.cribsheets.push(new Cribsheet(cribsheet.name, cribsheet.university, cribsheet.professor, cribsheet.subject, cribsheet.type, cribsheet.description))
+        this.cribsheets.push(new Cribsheet(cribsheet.lastname, cribsheet.subject, cribsheet.type, cribsheet.university, cribsheet.year))
       })
     })
   } 
