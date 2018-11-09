@@ -15,6 +15,10 @@ export class NavbarComponent {
     this.modalService.open(content)
   }
 
+  openNewSignUpModal(content){
+    this.modalService.open(content)
+  }
+
   signout(){
     this.storage.remove("COGNITO_TOKEN")
     window.location.reload()

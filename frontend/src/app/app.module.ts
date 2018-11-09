@@ -11,6 +11,8 @@ import { NewCribsheetComponent } from './components/new-cribsheet/new-cribsheet.
 import { CognitoService } from './services/cognito.service';
 
 import { StorageServiceModule} from 'angular-webstorage-service';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { StorageServiceModule} from 'angular-webstorage-service';
     NavbarComponent,
     CribsheetItemComponent,
     ListCribsheetsComponent,
-    NewCribsheetComponent
+    NewCribsheetComponent,
+    SignUpComponent,
+
   ],
   imports: [
     NgbModule.forRoot(),
