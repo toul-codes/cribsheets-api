@@ -8,7 +8,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CribsheetItemComponent } from './components/cribsheet-item/cribsheet-item.component';
 import { ListCribsheetsComponent } from './components/list-cribsheets/list-cribsheets.component';
 import { NewCribsheetComponent } from './components/new-cribsheet/new-cribsheet.component';
+import { CognitoService } from './services/cognito.service';
 
+import { StorageServiceModule} from 'angular-webstorage-service';
 
 @NgModule({
   declarations: [
@@ -22,10 +24,12 @@ import { NewCribsheetComponent } from './components/new-cribsheet/new-cribsheet.
     NgbModule.forRoot(),
     BrowserModule,
     HttpModule,
+    StorageServiceModule
 
   ],
   providers: [
-    CribsheetsApiService
+    CribsheetsApiService,
+    CognitoService
   ],
   bootstrap: [AppComponent]
 })
