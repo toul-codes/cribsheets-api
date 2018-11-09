@@ -1,29 +1,28 @@
 <div class="modal-header">
  <h4 class="modal-title">New Cribsheet Resource</h4>
- <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
- <span aria-hidden="true">&times;</span>
- </button>
+ <!-- <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+  <span aria-hidden="true">&times;</span>
+ </button> -->
 </div>
 <div class="modal-body">
  <div *ngIf="showMsg" class="alert alert-success" role="alert">
- <b>Well done !</b> You successfully added a new Cribsheet.
+  <b>Well done !</b> You successfully added a new Cribsheet.
  </div>
  <div class="form-group">
- <label for="professor">Professor:</label>
- <input type="text" class="form-control" #professor> 
+  <label for="professor">Professor:</label>
+  <input type="text" class="form-control" #professor> 
  </div>
  <div class="form-group">
     <label for="coursenumber">Course Number:</label>
     <input type="text" class="form-control" #coursenumber> 
  </div>
  <div class="form-group">
- <label for="coursenumber">Description</label>
- <textarea class="form-control" rows="3" #description> e.g, University of Houston, Exam 1 with solutions fall 2018
-</textarea>
+  <label for="coursenumber">Description</label>
+  <textarea class="form-control" rows="3" #description> e.g, University of Houston, Exam 1 with solutions fall 2018</textarea>
  </div>
  <div class="form-group">
   <form method='post' action='' enctype="multipart/form-data">
-    Select files : <input type='file' name='file' id='file' class='form-control' multiple><br>
+    Select files : <input type='file' name='file' id='file' class='form-control' multiple #file><br>
    </form> 
  </div>
 </div>
