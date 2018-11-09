@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: golang:1.8
 
-    working_directory: /go/src/github.com/llcranmer/cribsheets-api/findAll
+    working_directory: /go/src/github.com/llcranmer/cribsheets-api/findAll/
 
     environment:
         S3_BUCKET: cribsheets-api-deployment-packages
