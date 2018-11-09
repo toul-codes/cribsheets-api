@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
 import { Cribsheet } from '../../models/cribsheet';
