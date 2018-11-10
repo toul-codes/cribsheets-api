@@ -2,7 +2,7 @@ version: 0.2
 env:
   variables:
     S3_BUCKET: "cribsheets-api-deployment-packages"
-    PACKAGE: "github.com/llcranmer/cribsheets-api/findAll"
+    PACKAGE: "github.com/llcranmer/cribsheets-api"
 
 phases:
   install:
