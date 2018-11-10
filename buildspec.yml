@@ -17,7 +17,7 @@ phases:
       - go get -t ./...
       - golint -set_exit_status
       - ls -a
-      - go env
+      - go version
       - go vet .
       - go test .
 
