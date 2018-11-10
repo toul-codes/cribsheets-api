@@ -20,6 +20,7 @@ findAll_phases:
       - go version
       - go vet .
       - go test .
+      - laaa
 
   build:
     commands:
