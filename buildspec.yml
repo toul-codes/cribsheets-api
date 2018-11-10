@@ -16,7 +16,6 @@ phases:
       - cd "/go/src/${PACKAGE}"
       - go get -t ./...
       - golint -set_exit_status
-      - go test .
 
   build:
     commands:
