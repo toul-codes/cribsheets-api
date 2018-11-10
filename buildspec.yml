@@ -11,7 +11,7 @@ phases:
       - ln -s "${CODEBUILD_SRC_DIR}" "/go/src/${PACKAGE}"
       - go get -u github.com/golang/lint/golint
       
-  pre_build:
+  findall_pre_build:
     commands:
       - cd "/go/src/${PACKAGE}/findAll"
       - go get -t ./...
@@ -21,12 +21,12 @@ phases:
       - go vet .
       - go test .
 
-  build:
+  findall_build:
     commands:
       - GOOS=linux go build -o main
       - zip $CODEBUILD_RESOLVED_SOURCE_VERSION.zip main
       - aws s3 cp $CODEBUILD_RESOLVED_SOURCE_VERSION.zip s3://$S3_BUCKET/
 
-  post_build:
+  findall_post_build:
     commands:
       - aws lambda update-function-code --function-name FindAllCribsheets --s3-bucket $S3_BUCKET --s3-key $CODEBUILD_RESOLVED_SOURCE_VERSION.zip
