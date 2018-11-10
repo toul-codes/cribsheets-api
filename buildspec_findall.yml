@@ -4,7 +4,7 @@ env:
     S3_BUCKET: "cribsheets-api-deployment-packages"
     PACKAGE: "github.com/llcranmer/cribsheets-api"
 
-findAll_phases:
+phases:
   install:
     commands:
       - mkdir -p "/go/src/$(dirname ${PACKAGE})"
@@ -20,7 +20,6 @@ findAll_phases:
       - go version
       - go vet .
       - go test .
-      - laaa
 
   build:
     commands:
