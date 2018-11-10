@@ -27,7 +27,7 @@ jobs:
            go get -t ./...
            golint -set_exit_status
            go vet .
-           go test .
+      
       - run:
          name: Build
          command: |
