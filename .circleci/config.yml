@@ -33,6 +33,7 @@ jobs:
       - run:
          name: Build
          command: |
+          cd findAll
           GOOS=linux go build -o main main.go
           zip $CIRCLE_SHA1.zip main
       
