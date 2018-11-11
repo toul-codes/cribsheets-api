@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: golang:1.11
 
-    working_directory: /go/src/github.com/llcranmer/cribsheets-api/
+    working_directory: /go/src/github.com/llcranmer/cribsheets-api
 
     build_dir: findAll
 
@@ -23,6 +23,8 @@ jobs:
       - run:
           name: Test
           command: |
+           ls -a
+           cd findAll
            go get github.com/golang/lint/golint
            go get -t ./...
            golint -set_exit_status
