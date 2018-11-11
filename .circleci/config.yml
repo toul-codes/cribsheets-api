@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: golang:1.11
 
-    working_directory: /go/src/github.com/llcranmer/cribsheets-api
+    working_directory: /go/src/github.com/llcranmer/cribsheets-api/
 
     build_dir: findAll
 
