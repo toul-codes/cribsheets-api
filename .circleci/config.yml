@@ -45,7 +45,7 @@ jobs:
           command: |
             aws lambda update-function-code --function-name FindAllCribsheets \
                 --s3-bucket $S3_BUCKET \
-                --s3-key $CIRCLE_SHA1.zip --region us-east-2
+                --s3-key=$CIRCLE_SHA1.zip --region us-east-2
   
   build_insert:
     docker:
@@ -91,7 +91,7 @@ jobs:
           command: |
             aws lambda update-function-code --function-name InsertCribsheet \
                 --s3-bucket $S3_BUCKET \
-                --s3-key $CIRCLE_SHA1.zip --region us-east-2
+                --s3-key=$CIRCLE_SHA1.zip --region us-east-2
 
 workflows:
   version: 2
