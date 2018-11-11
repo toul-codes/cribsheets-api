@@ -25,10 +25,9 @@ jobs:
           command: |
            ls -a
            cd findAll
-           go get github.com/golang/lint/golint
            go get -t ./...
-           golint -set_exit_status
-           go vet .
+           
+          
       
       - run:
          name: Build
