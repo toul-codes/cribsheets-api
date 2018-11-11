@@ -71,10 +71,7 @@ jobs:
           name: Test
           command: |
            cd insertCribsheet
-           go get github.com/golang/lint/golint
            go get -t ./...
-           golint -set_exit_status
-           go vet .
            go test .
       - run:
          name: Build
