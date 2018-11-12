@@ -20,6 +20,9 @@ jobs:
           apt-get update
           apt-get install -y zip python-pip python-dev
           pip install awscli
+          echo AWS_ACCESS_KEY_ID
+          echo AWS_SECRET_ACCESS_KEY
+          echo AWS_DEFAULT_REGION
       - run:
           name: Test
           command: |
@@ -35,9 +38,17 @@ jobs:
           zip $CIRCLE_SHA1.zip main
       
       - run:
+          name: Push
+          command: |
+           cd findAll
+           aws s3 cp $CIRCLE_SHA1.zip s3://$S3_BUCKET
+
+      - run:
           name: Deploy
           command: |
-            aws lambda update-function-code --function-name FindAllCribsheets --s3-bucket=$S3_BUCKET s3-key=$CIRCLE_SHA1.zip --region us-east-2
+            aws lambda update-function-code --function-name FindAllCribsheets \
+                --s3-bucket=$S3_BUCKET 
+                --s3-key=$CIRCLE_SHA1.zip --region us-east-2
   
   build_insert:
     docker:
@@ -71,11 +82,19 @@ jobs:
           cd insertCribsheet
           GOOS=linux go build -o main main.go
           zip $CIRCLE_SHA1.zip main
+      
+      - run:
+          name: Push
+          command: |
+           cd insertCribsheet
+           aws s3 cp $CIRCLE_SHA1.zip s3://$S3_BUCKET
 
       - run:
           name: Deploy
           command: |
-            aws lambda update-function-code --function-name InsertCribsheet --s3-bucket=$S3_BUCKET --s3-key=$CIRCLE_SHA1.zip --region us-east-2
+            aws lambda update-function-code --function-name InsertCribsheet \
+                --s3-bucket=$S3_BUCKET \
+                --s3-key=$CIRCLE_SHA1.zip --region us-east-2
 
 workflows:
   version: 2
