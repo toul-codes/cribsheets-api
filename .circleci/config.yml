@@ -46,7 +46,8 @@ jobs:
           name: Deploy
           command: |
             aws lambda update-function-code --function-name FindAllCribsheets --s3-bucket=$S3_BUCKET --s3-key=$CIRCLE_SHA1.zip --region us-east-2
-  build_findall:
+  
+  build_insert:
     docker:
       - image: golang:1.8
 
