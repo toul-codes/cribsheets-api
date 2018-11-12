@@ -20,11 +20,10 @@ jobs:
           apt-get update
           apt-get install -y zip python-pip python-dev
           pip install awscli
-          echo 'changing into directiory'
-          cd ~/.aws
+        
           echo 'listing'
           ls -a 
-          
+
       - run:
           name: Test
           command: |
