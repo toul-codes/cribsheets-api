@@ -31,8 +31,6 @@ jobs:
       - run:
          name: Build
          command: |
-          echo 'changing into directiory'
-          echo 'listing'
           ls -a 
           cd findAll
           GOOS=linux go build -o main main.go
