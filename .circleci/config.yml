@@ -32,7 +32,6 @@ jobs:
          name: Build
          command: |
           echo 'changing into directiory'
-          cd ~/.aws/
           echo 'listing'
           ls -a 
           cd findAll
