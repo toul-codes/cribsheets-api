@@ -20,9 +20,11 @@ jobs:
           apt-get update
           apt-get install -y zip python-pip python-dev
           pip install awscli
-          echo AWS_ACCESS_KEY_ID
-          echo AWS_SECRET_ACCESS_KEY
-          echo AWS_DEFAULT_REGION
+          echo 'changing into directiory'
+          cd ~/.aws
+          echo 'listing'
+          ls -a 
+          
       - run:
           name: Test
           command: |
