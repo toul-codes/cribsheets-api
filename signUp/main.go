@@ -11,6 +11,7 @@ import (
 
 // Account is the user struct for signing up
 type Account struct {
+	Email    string `json:"email"`
 	Username string `json:"username"`
 	Password string `json:"password"`
 }
@@ -24,6 +25,7 @@ func signUp(account Account) error {
 	cognito := cognitoidentityprovider.New(cfg)
 	req := cognito.SignUpRequest(&cognitoidentityprovider.SignUpInput{
 		ClientId: aws.String(os.Getenv("COGNITO_CLIENT_ID")),
+		Email:    aws.String(account.Email),
 		Username: aws.String(account.Username),
 		Password: aws.String(account.Password),
 	})

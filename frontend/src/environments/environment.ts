@@ -6,6 +6,6 @@
 export const environment = {
   production: false,
   api: 'https://7qkpsd4my6.execute-api.us-east-2.amazonaws.com/staging/cribsheets',
-  userPoolId: ' us-east-2_K6MHpqLdF',
-  clientId: '15r1bv6auabmbj402fg5tthdoc'
+  userPoolId: 'us-east-2_Si6sAkqUy',
+  clientId: '107fgp2jq7admcmrf19qmi7qir'
 };

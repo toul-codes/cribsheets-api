@@ -25,6 +25,16 @@ export class CribsheetsApiService {
         return res
       })
 }
+// A visitor should not have to be logged in to sign up...
+  signUp(account: Account){
+    return this.http
+      .post(environment.api, JSON.stringify(account))
+      .map( res => {
+        return res
+      })
+  }
+
+// If the user is authorized, i.e. logged in then they can see all of the cribsheets and insert one. 
 getHeaders(){
   let headers = new Headers()
   headers.append('Authorization', this.storage.get("COGNITO_TOKEN"))
