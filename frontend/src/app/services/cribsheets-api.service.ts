@@ -3,6 +3,7 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { environment } from '../../environments/environment';
 import { Cribsheet } from '../../models/cribsheet';
+import { Account } from '../../models/account';
 import {LOCAL_STORAGE, WebStorageService} from 'angular-webstorage-service';
 
 @Injectable()
@@ -28,7 +29,7 @@ export class CribsheetsApiService {
 // A visitor should not have to be logged in to sign up...
   signUp(account: Account){
     return this.http
-      .post(environment.api, JSON.stringify(account))
+      .post(environment.api, JSON.stringify(account), {headers: this.getHeaders()})
       .map( res => {
         return res
       })

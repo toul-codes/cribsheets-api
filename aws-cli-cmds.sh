@@ -82,6 +82,6 @@ aws lambda create-function --function-name signUp --runtime go1.x \
 
 # Add environment variable 
 aws lambda update-function-configuration --function-name signUp \
- --environment Variables={COGNITO_CLIENT_ID='15r1bv6auabmbj402fg5tthdoc'} \
+ --environment Variables={COGNITO_CLIENT_ID='107fgp2jq7admcmrf19qmi7qir'} \
  --region us-east-2
 
