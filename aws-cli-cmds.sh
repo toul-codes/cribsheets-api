@@ -36,10 +36,8 @@ aws lambda add-permission   --function-name "arn:aws:lambda:us-east-2:9619232807
 aws lambda add-permission   --function-name "arn:aws:lambda:us-east-2:961923280705:function:FindAllCribsheets:Staging"   --source-arn "arn:aws:execute-api:us-east-2:961923280705:7qkpsd4my6/*/GET/cribsheets"   --principal apigateway.amazonaws.com   --statement-id e682f70d-c1a5-4042-82fc-47bb57de26f7   --action lambda:InvokeFunction
 aws lambda add-permission   --function-name "arn:aws:lambda:us-east-2:961923280705:function:${stageVariables.lambda}"   --source-arn "arn:aws:execute-api:us-east-2:961923280705:7qkpsd4my6/*/POST/signUp"   --principal apigateway.amazonaws.com   --statement-id 80e281bc-c51d-4f53-bb96-2a95c7c26414   --action lambda:InvokeFunction
 
-
-aws lambda add-permission   --function-name "arn:aws:lambda:us-east-2:961923280705:function:signUp:Staging"   --source-arn "arn:aws:execute-api:us-east-2:961923280705:7qkpsd4my6/*/POST/signUp"   --principal apigateway.amazonaws.com   --statement-id ead51fb4-8b4b-4598-8982-8862faac8e77   --action lambda:InvokeFunction
-
-
+aws lambda add-permission   --function-name "arn:aws:lambda:us-east-2:961923280705:function:${stageVariables.lambda_signUp}"   --source-arn "arn:aws:execute-api:us-east-2:961923280705:7qkpsd4my6/*/POST/signUp"   --principal apigateway.amazonaws.com   --statement-id d8612e1e-fb0a-4a9e-a8dd-663b41c721cf   --action lambda:InvokeFunction
+aws lambda add-permission   --function-name "arn:aws:lambda:us-east-2:961923280705:function:signUp:Staging"   --source-arn "arn:aws:execute-api:us-east-2:961923280705:7qkpsd4my6/*/POST/signUp"   --principal apigateway.amazonaws.com   --statement-id 4b9c5b21-27cc-4e5d-ad2b-dea5e7e7c937   --action lambda:InvokeFunction
 # Remove permission from production 
 aws lambda remove-permission --function-name "arn:aws:lambda:us-east-2:961923280705:function:FindAllCribsheets:Production" \
     --statement-id 80e281bc-c51d-4f53-bb96-2a95c7c26414
@@ -90,3 +88,5 @@ aws lambda update-function-configuration --function-name signUp \
  --environment Variables={COGNITO_CLIENT_ID='107fgp2jq7admcmrf19qmi7qir'} \
  --region us-east-2
 
+# Changing the profile 
+export AWS_PROFILE=whatever
